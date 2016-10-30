@@ -343,7 +343,7 @@ static void interpretLink(struct nlmsghdr *p_hdr, struct ifaddrs **p_links, stru
                 break;
             }
             case IFLA_IFNAME:
-                strncpy(l_name, l_rtaData, l_rtaDataSize);
+                strncpy(l_name, (const char*)l_rtaData, l_rtaDataSize);
                 l_name[l_rtaDataSize] = '\0';
                 l_entry->ifa_name = l_name;
                 break;
@@ -457,7 +457,7 @@ static void interpretAddr(struct nlmsghdr *p_hdr, struct ifaddrs **p_links, stru
                 break;
             }
             case IFA_LABEL:
-                strncpy(l_name, l_rtaData, l_rtaDataSize);
+                strncpy(l_name, (const char*)l_rtaData, l_rtaDataSize);
                 l_name[l_rtaDataSize] = '\0';
                 l_entry->ifa_name = l_name;
                 break;
